@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>نموذج الدفع</title>
+</head>
+<body>
+  <h2>أدخل معلوماتك</h2>
+  <form id="paymentForm">
+    الاسم: <input type="text" name="name" required><br><br>
+    رقم الهاتف: <input type="tel" name="phone" required><br><br>
+    ملاحظات: <textarea name="notes"></textarea><br><br>
+    <button type="submit">الدفع</button>
+  </form>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // البيانات المدخلة
+      const formData = new FormData(this);
+      const name = formData.get('name');
+      const phone = formData.get('phone');
+      const notes = formData.get('notes');
+
+      // رابط الدفع الخاص فيك (بدله بالرابط الصحيح)
+      const paymentUrl = 'https://example.com/pay';
+
+      // توجه العميل إلى صفحة الدفع
+      window.location.href = paymentUrl;
+    });
+  </script>
+</body>
+</html>
